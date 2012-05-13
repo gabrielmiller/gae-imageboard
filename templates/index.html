@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>gm-img Imageboard</title>
+</head>
+
+<body>
+	<h1>gm-img Imageboard</h1>
+
+	<form method="post" enctype="multipart/form-data">
+		<label>
+			Title: <input type="text" name="title" value="{{title}}">
+		</label><br>
+
+		<label>
+			Image: <input type="file" name="upfile" value="{{upfile}}">
+		</label><br>
+
+		<label>
+			Text: <textarea name="text">{{text}}</textarea>
+		</label><br>
+
+		<div class="error">{{ error }} </div>
+
+		<input type="submit">
+	</form>
+
+	<hr>
+	<div="postwrapper">
+		{% for post in postedimages %}
+			<article class="postimage">
+			<h2>Title: {{ post.title }}</h2>
+			<date><em>Date posted: </em>{{ post.createdate }}</date>
+			<div class="imgwrapper"></div>
+				<p class="posttext">
+				{{post.text}}
+				</p>
+			</article>
+		{% endfor %}
+	</div>
+
+</body>
+</html>
