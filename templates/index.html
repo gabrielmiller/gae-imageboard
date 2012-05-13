@@ -2,45 +2,46 @@
 <html>
 
 <head>
-<title>gm-img Imageboard</title>
+<title>Imageboard Web Application</title>
 <link rel="stylesheet" type="text/css" href="imgboard.css">
 </head>
 
 <body>
-	<h1>gm-img Imageboard</h1>
+	<div id="pagewrapper">
+		<div id="formwrapper">
+			<h1>Imageboard Web Application</h1>
 
-	<form method="post" enctype="multipart/form-data">
-		<label>
-			<div>Title: </div>
-			<input type="text" name="title" value="{{title}}">
-		</label><br>
+			<form method="post" enctype="multipart/form-data">
+				<label>
+					<div>Post title: </div></label>
+					<input type="text" name="title" value="{{title}}">
+				<br><br>
+				<label>
+					<div>Image: </div></label>
+					<input type="file" name="upfile" value=""><br>
+				<br>
+				<label>
+					<div>Post text(optional): </div></label>
+					<textarea name="text">{{text}}</textarea>
+				<br>
 
-		<label>
-			<div>Image: </div>
-			<input type="file" name="upfile" value="">
-		</label><br>
+				<div class="error">{{ error }} </div>
 
-		<label>
-			<div>Text: </div>
-			<textarea name="text">{{text}}</textarea>
-		</label><br>
-
-		<div class="error">{{ error }} </div>
-
-		<input type="submit">
-	</form>
-	<br>
-	<div="postwrapper">
-		{% for post in postedimages %}
+				<input type="submit">
+			</form>
+		</div>
+		<br>
+		<div id="postwrapper">
+			{% for post in postedimages %}
 			<article class="postimage">
-			<h2>{{ post.title }}</h2>
-			<time><em>Posted {{ post.createdate }}</em></time>
-			<div class="imgwrapper"><img src="img?img_id={{ post.key() }}"></div>
-				<p class="posttext">
-				{{post.text}}
-				</p>
+			<h2>&quot;{{ post.title }}&quot;</h2>
+			<h3><em>Posted {{ post.createdate }}</em></h3>
+			<div class="imgwrapper"><a href="img?img_id={{ post.key() }}"><img src="img?img_id={{ post.key() }}"></a></div>
+			<p class="posttext">&quot;{{post.text}}&quot;</p>
 			</article>
-		{% endfor %}
+			{% endfor %}
+		</div>
+		<footer>2012 L. Gabriel Miller</footer>
 	</div>
 
 </body>

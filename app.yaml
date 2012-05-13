@@ -1,4 +1,4 @@
-application: imgboard
+application: gm-img
 version: 1
 runtime: python27
 api_version: 1
@@ -13,6 +13,10 @@ handlers:
 - url: /imgboard\.css
   static_files: imgboard.css
   upload: imgboard\.css
+
+- url: /background\.gif
+  static_files: background.gif
+  upload: background\.gif
 
 - url: /.*
   script: imgboard.app
