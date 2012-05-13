@@ -38,7 +38,7 @@ class MainPage(Handler):
 		upfile = self.request.get("upfile")
 		text = self.request.get("text")
 
-		if title and text and upfile:
+		if title and upfile:
 			z = Postedimage(title=title, upfile=upfile, text=text)
 			z.put()
 			self.redirect("/")
@@ -56,9 +56,4 @@ class GetImage (Handler):
        else:
            self.error(404)
 
-app = webapp2.WSGIApplication([('/', MainPage),('/img', GetImage)], debug=True)#,('/image', GetImage)], debug=True)
-
-#apps_binding.append(('/image', GetImage))
-#application = webapp.WSGIApplication(apps_binding, debug=True)
-
-#wsgiref.handlers.CGIHandler().run(application)
+app = webapp2.WSGIApplication([('/', MainPage),('/img', GetImage)], debug=True)

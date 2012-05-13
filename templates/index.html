@@ -9,7 +9,7 @@
 <body>
 	<div id="pagewrapper">
 		<div id="formwrapper">
-			<h1>Imageboard Web Application</h1>
+			<h1>GM-IMG</h1>
 
 			<form method="post" enctype="multipart/form-data">
 				<label>
@@ -31,16 +31,14 @@
 			</form>
 		</div>
 		<br>
-		<div id="postwrapper">
-			{% for post in postedimages %}
-			<article class="postimage">
-			<h2>&quot;{{ post.title }}&quot;</h2>
-			<h3><em>Posted {{ post.createdate }}</em></h3>
-			<div class="imgwrapper"><a href="img?img_id={{ post.key() }}"><img src="img?img_id={{ post.key() }}"></a></div>
-			<p class="posttext">&quot;{{post.text}}&quot;</p>
-			</article>
-			{% endfor %}
-		</div>
+		{% for post in postedimages %}
+		<article class="postimage">
+		<h2>&quot;{{ post.title }}&quot;</h2>
+		<h3><em>Posted {{ post.createdate }}</em></h3>
+		<div class="imgwrapper"><a href="img?img_id={{ post.key() }}"><img src="img?img_id={{ post.key() }}"></a></div>
+		<div class="posttext"><p>{{post.text}}</p></div>
+		</article>
+		{% endfor %}
 		<footer>2012 L. Gabriel Miller</footer>
 	</div>
 
