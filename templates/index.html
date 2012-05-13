@@ -3,6 +3,7 @@
 
 <head>
 <title>gm-img Imageboard</title>
+<link rel="stylesheet" type="text/css" href="imgboard.css">
 </head>
 
 <body>
@@ -10,29 +11,31 @@
 
 	<form method="post" enctype="multipart/form-data">
 		<label>
-			Title: <input type="text" name="title" value="{{title}}">
+			<div>Title: </div>
+			<input type="text" name="title" value="{{title}}">
 		</label><br>
 
 		<label>
-			Image: <input type="file" name="upfile" value="{{upfile}}">
+			<div>Image: </div>
+			<input type="file" name="upfile" value="">
 		</label><br>
 
 		<label>
-			Text: <textarea name="text">{{text}}</textarea>
+			<div>Text: </div>
+			<textarea name="text">{{text}}</textarea>
 		</label><br>
 
 		<div class="error">{{ error }} </div>
 
 		<input type="submit">
 	</form>
-
-	<hr>
+	<br>
 	<div="postwrapper">
 		{% for post in postedimages %}
 			<article class="postimage">
-			<h2>Title: {{ post.title }}</h2>
-			<date><em>Date posted: </em>{{ post.createdate }}</date>
-			<div class="imgwrapper"></div>
+			<h2>{{ post.title }}</h2>
+			<time><em>Posted {{ post.createdate }}</em></time>
+			<div class="imgwrapper"><img src="img?img_id={{ post.key() }}"></div>
 				<p class="posttext">
 				{{post.text}}
 				</p>

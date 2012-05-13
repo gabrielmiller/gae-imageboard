@@ -1,0 +1,15 @@
+body{font-family: sans-serif; width: 960px; margin: 0 auto; padding: 0px; background-color: #0df;}
+.error{color: #f00;}
+label{display: block; font-size: 2em; vertical-align: top;}
+h1{}
+h2{}
+input[type=text]{width:640px; font-size: 2.2em;}
+input[type=submit]{font-size: 2em;}
+input[type=file]{font-size: 1em;}
+textarea{width:640px; height:256px; font-size:1.5em;}
+time{}
+
+#postwrapper {background-color: ;}
+article {border-top: solid 1px; border-color: #000;}
+#imgwrapper{margin:10px; background-color:#ccc;}
+p .posttext{color:#0f0;}

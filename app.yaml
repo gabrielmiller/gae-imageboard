@@ -10,11 +10,15 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /imgboard\.css
+  static_files: imgboard.css
+  upload: imgboard\.css
+
 - url: /.*
   script: imgboard.app
 
-- url: /images
-  static_dir: images
+#- url: /images
+#  static_dir: images
 
 libraries:        
 
