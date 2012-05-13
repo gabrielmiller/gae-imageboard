@@ -12,22 +12,16 @@
 			<h1>GM-IMG</h1>
 
 			<form method="post" enctype="multipart/form-data">
-				<label>
-					<div>Post title: </div></label>
-					<input type="text" name="title" value="{{title}}">
+				<label>Post title: </label>
+				<input type="text" name="title" value="{{title}}">
 				<br><br>
-				<label>
-					<div>Image: </div></label>
-					<input type="file" name="upfile" value=""><br>
-				<br>
-				<label>
-					<div>Post text(optional): </div></label>
-					<textarea name="text">{{text}}</textarea>
-				<br>
-
+				<label>Post text(optional): </label>
+				<textarea name="text">{{text}}</textarea>
+				<br><br>
+				<label>Image: </label>
+				<div id="input"><input type="file" name="upfile" value="">
+				<div id="submit"><input type="submit"></div></div>
 				<div class="error">{{ error }} </div>
-
-				<input type="submit">
 			</form>
 		</div>
 		<br>

@@ -5,21 +5,24 @@ green #128925
 */
 
 body{font-family: sans-serif; padding: 0px; background: url(background.gif);}
-label{display: block; font-size: 1.5em; background-color: #128925; width: 932px; padding: 3px;} 
+label{display: block; font-size: 1.5em; background-color: #128925; width: 957px; padding: 0px 0px 0px 3px; margin: 0px;} 
 h1{background-color: #128925; width:220px; padding-left: 6px; margin-top: 8px; font-weight:900; font-size: 3em;}
 h2{margin: 0px 6px 0px;}
 h3{margin: 0px 12px 12px; font-size: 0.8em; font-weight: 500; padding: 0px;}
-input[type=text]{width:932px; font-size: 1.7em; margin: 0px;}
-input[type=submit]{font-size: 1.5em; margin: 0px}
-input[type=file]{width:938px; font-size: 0.8em; margin: 0px; padding: 0px; display: inline;}
-textarea{width:932px; height:256px; font-size:0.8em;}
+input[type=text]{font-size: 1.7em; margin: 0px; border: 1px groove #000; width:956px;}
+input[type=submit]{font-size: 1.5em; margin: 0px;}
+input[type=file]{width: 860px; font-size: 1.5em; margin: 0px; padding: 0px; display: inline;}
+textarea{min-height:256px; font-size:0.8em; border: 1px groove #000; width:956px;}
 img{max-width:100%; max-height: 100%;}
 
-div .error{background-color: #fff; color: #f00; font-size: 2em; font-weight: 900; padding-left: 6px; margin: 8px auto;}
+/*div {width:100%; padding: 0px; margin: 0px;}*/
+
+.error{background-color: #fff; color: #f00; font-size: 2em; font-weight: 900; padding-left: 6px; margin: 8px auto;}
+#input {background-color: #fff; width:960px;}
+#submit {text-align: right; display:inline;}
 
 #pagewrapper {width:960px; margin: 0 auto;}
 #formwrapper {padding: 4px; margin-top: 8px;}
-#postwrapper {;}
 
 article {background-color: #fff; border-top: solid 3px; border-color: #128925; padding-bottom: 2px; display: block;}
 article + article {margin-top: 24px;}
