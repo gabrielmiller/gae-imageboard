@@ -3,7 +3,7 @@ import webapp2
 import jinja2
 
 from google.appengine.ext import db
-from google.appengine.api import images
+#from google.appengine.api import images
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
@@ -19,21 +19,21 @@ class Handler(webapp2.RequestHandler):
 	def render(self, template, **kwargs):
 		self.write(self.render_str(template, **kwargs))
 
-class Postedimage(db.Model):
+class Postedimage(db.Model): #Database model
 	title = db.StringProperty(required=True)
 	upfile = db.BlobProperty(required=True)
 	text = db.TextProperty()
 	createdate = db.DateTimeProperty(auto_now_add=True)
 
 class MainPage(Handler):
-	def render_page(self, title="", upfile="", text="", error=""):
+	def render_page(self, title="", upfile="", text="", error=""): #Query database and serve result to index.html template
 		postedimages = db.GqlQuery("SELECT * FROM Postedimage ORDER BY createdate DESC")
 		self.render("index.html", title=title, upfile=upfile, text=text, error=error, postedimages=postedimages)
 
 	def get(self):
 		self.render_page()
 
-	def post(self):
+	def post(self): #Handle incoming HTTP Post requests, make sure at least a title and file are specified
 		title = self.request.get("title")
 		upfile = self.request.get("upfile")
 		text = self.request.get("text")
@@ -47,7 +47,7 @@ class MainPage(Handler):
 			error = "Error: You must specify at least a title and file."
 			self.render_page(title, upfile, text, error)
 
-class GetImage (Handler):
+class GetImage(Handler): #Serve images from the datastore based on HTTP Get requests
      def get(self):
        relayimage = db.get(self.request.get("img_id"))
        if relayimage.upfile:
